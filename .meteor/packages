@@ -8,3 +8,7 @@ insecure
 preserve-inputs
 coffeescript
 bootstrap
+http
+underscore
+accounts-ui
+accounts-facebook

@@ -1,13 +1,55 @@
 <head>
-  <title>movie_judgments</title>
+  <title>Do you have good taste in movies?</title>
 </head>
 
 <body>
-  {{> hello}}
+  {{> main}}
 </body>
 
-<template name="hello">
-  <h1>Hello World!</h1>
-  {{greeting}}
-  <input type="button" value="Click" />
+<template name="main">
+  <div class="container">
+    {{#unless scores}}
+      {{> facebook}}
+    {{/unless}}
+    {{#if scores}}
+      {{> score_board}}
+    {{/if}}
+  </div>
 </template>
+
+<template name="facebook">
+  <div class="fluid-row offset3 span6 hero-unit">
+    <h1>Lets judge your tastes!</h1>
+    <h3>Just log in, and press the button. </h3>
+    <div>{{loginButtons}}</div>
+    <input type="button" class="btn-large judge" value="How is your taste?" />
+  </div>
+</template>
+
+<template name="score_board">
+  <div class="hero-unit">
+    {{> audience}}
+  </div>
+  <div class="hero-unit">
+    {{> critics}}
+  </div>
+</template>
+
+<template name="audience">
+  <span>Your average audience score was:
+    <span class="score">
+      {{score}}!
+    </span>
+  </span>
+  <span>{{judge}}</span>
+</template>
+
+<template name="critics">
+  <span>Your average critics score was: 
+    <span class="score">
+      {{score}}!
+    </span>
+  </span>
+  <span>{{judge}}</span>
+</template>
+
