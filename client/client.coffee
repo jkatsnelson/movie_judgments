@@ -2,7 +2,6 @@ Template.facebook.events
   'click input' : () ->
     Meteor.call 'get_access_token', (error, accessToken) ->
       throw error if error
-      console.log accessToken
       create_movie_list accessToken
 
 create_movie_list = (token) ->
@@ -18,6 +17,12 @@ create_movie_list = (token) ->
 analyze_user = (movies) ->
   judge_user movies
   build_graphic movies
+  suggest_movies movies
+
+suggest_movies = (movies) ->
+  Meteor.call 'suggest', movies, (error, result) ->
+    console.log result
+    Session.set 'movie_suggestions', result
 
 build_graphic = (movies) ->
   data = _.map movies, (movie) ->
@@ -34,4 +39,4 @@ judge_user = (movies) ->
     critics_score += movie.ratings.critics_score
   audience_avg = audience_score / movies.length
   critics_avg = critics_score / movies.length
-  Session.set 'scores', [audience_avg, critics_avg] 
+  Session.set 'scores', [audience_avg, critics_avg]

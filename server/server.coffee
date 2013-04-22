@@ -23,6 +23,27 @@ Meteor.methods
 
     fut.wait()
 
+  suggest : (movies) ->
+    fut = new Future()
+    root_api = 'http://api.rottentomatoes.com/api/public/v1.0/movies/'
+    suffix_api = '/similar.json?limit=5&apikey=yadhkdu48t3yj6s898mdfny7'
+    suggestion_data = []
+    _.each movies, (movie, index) ->
+      url = root_api + movie.id + suffix_api
+      Meteor.http.get url, (err, result) ->
+        throw err if err
+        parsed_suggestions = JSON.parse result.content
+        _.each parsed_suggestions.movies, (movie) ->
+          suggestion_data.push
+            'critics_score' : movie.ratings.critics_score
+            'title' : movie.title
+            'audience_score': movie.ratings.audience_score
+            'rating': movie.mpaa_rating
+            'review': movie.critics_consensus
+        if index is (movies.length - 1)
+          fut.ret suggestion_data
+    fut.wait()
+
 find_correct_title = (movie_list, movie_name) ->
   correct_movie = null
   _.each movie_list, (movie) ->

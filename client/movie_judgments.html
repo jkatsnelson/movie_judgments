@@ -33,6 +33,9 @@
   <div class="hero-unit">
     {{> critics}}
   </div>
+  <div class="hero-unit">
+    {{> suggestions}}
+  </div>
 </template>
 
 <template name="audience">
@@ -55,3 +58,15 @@
   <div class="offset2">{{judge}}</div>
 </template>
 
+<template name="suggestions">
+  <div> Here are some movies you might want to check out: </div>
+  {{#list movies}}
+    <h3 class="suggestion_title">
+      {{title}}
+    </h3>
+    <div class="suggestion_score">Critics: {{critics_score}}</div>
+    <div class="suggestion_score">Audience: {{audience_score}}</div>
+    <div class="ratings">Rating: {{rating}}</div>
+    <div class="review">{{review}}</div>
+  {{/list}}
+</template>
