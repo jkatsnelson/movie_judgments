@@ -40,6 +40,7 @@ Meteor.methods
             'audience_score': movie.ratings.audience_score
             'rating': movie.mpaa_rating
             'review': movie.critics_consensus
+            'thumbnail': movie.posters.detailed
         if index is (movies.length - 1)
           fut.ret suggestion_data
     fut.wait()

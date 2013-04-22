@@ -24,4 +24,17 @@ svg {
 
 .review {
   font-style: italic;
+  margin-top: 60px;
+}
+.scores_ratings {
+  margin: 10px;
+}
+.suggestion_score, .ratings {
+  position: relative;
+  bottom: 100px;
+  margin-left: 10px;
+}
+.suggestion_title {
+  position: relative;
+  top: 80px;
 }

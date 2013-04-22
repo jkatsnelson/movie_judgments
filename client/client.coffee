@@ -21,7 +21,6 @@ analyze_user = (movies) ->
 
 suggest_movies = (movies) ->
   Meteor.call 'suggest', movies, (error, result) ->
-    console.log result
     Session.set 'movie_suggestions', result
 
 build_graphic = (movies) ->

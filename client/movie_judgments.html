@@ -61,12 +61,23 @@
 <template name="suggestions">
   <div> Here are some movies you might want to check out: </div>
   {{#list movies}}
-    <h3 class="suggestion_title">
-      {{title}}
-    </h3>
-    <div class="suggestion_score">Critics: {{critics_score}}</div>
-    <div class="suggestion_score">Audience: {{audience_score}}</div>
-    <div class="ratings">Rating: {{rating}}</div>
-    <div class="review">{{review}}</div>
+    <div class="fluid-row">
+      <h3 class="suggestion_title">
+        {{title}}
+      </h3>
+      <div class="image offset6">
+        <img src={{thumbnail}}>
+      </div>
+      <div class="fluid-row scores_ratings">
+        <div class="suggestion_score pull-left">Critics: {{critics_score}}</div>
+        <div class="suggestion_score pull-left">Audience: {{audience_score}}</div>
+        <div class="ratings pull-left">
+          Rating: {{rating}}
+        </div>
+      </div>
+      <div class="fluid-row review">
+        <div class="review">{{review}}</div>
+      </div>
+    </div>
   {{/list}}
 </template>
