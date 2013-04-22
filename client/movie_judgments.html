@@ -36,20 +36,22 @@
 </template>
 
 <template name="audience">
-  <span>Your average audience score was:
-    <span class="score">
-      {{score}}!
-    </span>
+  <div class="intro offset2">Your average audience score was:
+  </div>
+    <svg class="audience_svg offset1"/>
+  <span class="score">
+    {{score}}!
   </span>
-  <span>{{judge}}</span>
+  <div class="offset2">{{judge}}</div>
 </template>
 
 <template name="critics">
-  <span>Your average critics score was: 
-    <span class="score">
-      {{score}}!
-    </span>
+  <div class="intro offset2">Your average critics score was:
+  </div>
+    <svg class="critics_svg offset1"/>
+  <span class="score">
+    {{score}}!
   </span>
-  <span>{{judge}}</span>
+  <div class="offset2">{{judge}}</div>
 </template>
 

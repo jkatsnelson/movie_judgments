@@ -4,6 +4,20 @@
 }
 
 .score {
-  font-size: 60px;
+  font-size: 50px;
   font-weight: bold;
+  position: relative;
+  right: 320px;
+  bottom: 130px;
+}
+.arc path {
+  stroke: #fff;
+}
+
+svg {
+  margin-top: 80px;
+}
+
+.intro {
+  font-size: 35px;
 }
